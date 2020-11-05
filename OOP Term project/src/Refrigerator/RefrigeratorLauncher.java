@@ -38,7 +38,7 @@ public class RefrigeratorLauncher {
 							ref.autoMaintain(ref.temperature);
 							System.out.println("Auto maintain system has successfully modified temperature.");
 							temp = Double.parseDouble(String.format("%.2f", ref.temperature));
-							System.out.println("Current Temperature is: " + temp + "\n");
+							System.out.println("Modified temperature is: " + temp + "\n");
 						} catch (Exception e) {
 							e.printStackTrace();
 							System.out.println("Can't maintain temperature.");

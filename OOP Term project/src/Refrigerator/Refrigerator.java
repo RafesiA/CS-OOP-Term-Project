@@ -83,7 +83,7 @@ public class Refrigerator {
 	// show currentTemp
 	public void currentTemp() {
 		double temp = Double.parseDouble(String.format("%.2f", temperature));
-		System.out.println("Modified temperature is : " + temp + "\n");
+		System.out.println("Current temperature is : " + temp + "\n");
 	}
 	
 	public double upTemp() {
