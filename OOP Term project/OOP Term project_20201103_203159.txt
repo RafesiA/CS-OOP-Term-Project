@@ -1,0 +1,4 @@
+ERROR - 20:31:59: org.xml.sax.SAXParseExceptionpublicId: /OOP%20Term%20project/src/Refrigerator/Food.java; systemId: file:///OOP%20Term%20project/src/Refrigerator/Food.java; lineNumber: 1; columnNumber: 1; Content is not allowed in prolog.
+ERROR - 20:31:59: org.xml.sax.SAXParseExceptionpublicId: /OOP%20Term%20project/src/Refrigerator/Food.java; systemId: file:///OOP%20Term%20project/src/Refrigerator/Food.java; lineNumber: 1; columnNumber: 1; Content is not allowed in prolog.
+ERROR - 20:32:08: org.xml.sax.SAXParseExceptionpublicId: /OOP%20Term%20project/src/Refrigerator/Food.java; systemId: file:///OOP%20Term%20project/src/Refrigerator/Food.java; lineNumber: 1; columnNumber: 1; Content is not allowed in prolog.
+ERROR - 20:32:08: org.xml.sax.SAXParseExceptionpublicId: /OOP%20Term%20project/src/Refrigerator/Food.java; systemId: file:///OOP%20Term%20project/src/Refrigerator/Food.java; lineNumber: 1; columnNumber: 1; Content is not allowed in prolog.
