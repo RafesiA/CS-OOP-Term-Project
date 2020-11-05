@@ -77,7 +77,7 @@ public class Refrigerator {
 		}
 		
 	}
-	
+	// show currentTemp
 	public void currentTemp() {
 		System.out.println("Current temperatur is : " + temperature);
 	}
@@ -88,12 +88,13 @@ public class Refrigerator {
 		return freezer;
 	}
 	
-	
+	/* included inputNewFood(), deleted this.
 	public int inputExDate(Scanner scan) {
 		System.out.println("input expiry date.");
 		expiryDate = scan.nextInt();
 		return expiryDate;
 	}
+	*/
 	
 	public void displayMessage() {
 		if(!food.isEmpty()) {
