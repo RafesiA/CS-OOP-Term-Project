@@ -26,7 +26,7 @@ public class guiLauncher extends Application{
 		Parent root = FXMLLoader.load(getClass().getResource("prototype.fxml"));
         Scene scene = new Scene(root);
 
-        
+        primaryStage.setResizable(false);
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("Refrigerator");
 		primaryStage.show();

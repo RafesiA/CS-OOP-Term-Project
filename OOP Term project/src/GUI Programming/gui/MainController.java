@@ -39,7 +39,7 @@ public class MainController implements Initializable{
 		loader.getController();
 		Scene scene = new Scene(root);
 		Stage stage = new Stage();
-		
+		stage.setResizable(false);
 		
 		Stage currentStage = (Stage) manageButton.getScene().getWindow();
 		currentStage.close();

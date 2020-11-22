@@ -136,6 +136,7 @@ public class TableController implements Initializable {
 			Stage stage = new Stage();
 			loader.getController();
 			
+			stage.setResizable(false);
 			stage.setScene(scene);
 			stage.setTitle("Refrigerator Management System");
 			stage.show();
@@ -179,7 +180,8 @@ public class TableController implements Initializable {
 			Parent root = FXMLLoader.load(getClass().getResource("prototype.fxml"));
 	        Scene scene = new Scene(root);
 	        Stage primaryStage = new Stage();
-
+	        
+	        primaryStage.setResizable(false);
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Refrigerator");
 			primaryStage.show();
