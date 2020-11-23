@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="584.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="management.TableController">
+   <children>
+      <TableView fx:id="tableView" layoutX="14.0" layoutY="18.0" prefHeight="364.0" prefWidth="332.0">
+        <columns>
+          <TableColumn fx:id="foodNameColumn" onEditCommit="#changeFoodNameCellEvent" prefWidth="165.0" text="Name" />
+          <TableColumn fx:id="foodExpiryColumn" onEditCommit="#changeFoodDateCellEvent" prefWidth="95.0" text="Expiry" />
+            <TableColumn fx:id="foodTypeColumn" prefWidth="71.0" text="Type" />
+        </columns>
+      </TableView>
+      <Button fx:id="addButton" layoutX="375.0" layoutY="76.0" mnemonicParsing="false" onAction="#openAdd" prefHeight="22.0" prefWidth="168.0" text="Add New" />
+      <Button fx:id="buttonRemove" layoutX="375.0" layoutY="140.0" mnemonicParsing="false" onAction="#removeFood" prefHeight="22.0" prefWidth="168.0" text="Delete" />
+      <Button fx:id="backToMenu" layoutX="482.0" layoutY="360.0" mnemonicParsing="false" onAction="#closeManagement" text="Back to menu" />
+      <CheckBox fx:id="editMode" layoutX="375.0" layoutY="209.0" mnemonicParsing="false" onAction="#onEdit" text="Edit Mode" />
+   </children>
+</Pane>
