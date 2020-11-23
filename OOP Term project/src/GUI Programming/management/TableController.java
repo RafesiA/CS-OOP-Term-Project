@@ -8,6 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import Refrigerator.Refrigerator;
+import gui.Main;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
@@ -63,6 +64,7 @@ public class TableController implements Initializable {
     
     Refrigerator ref = new Refrigerator();
     double currentTemp = 10.0;
+    Timeline timeline;
     
 
 	 @Override
@@ -98,11 +100,13 @@ public class TableController implements Initializable {
 	    			
 	    		}
 	    	});
-	    	Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(30.0), e ->{
+	    	timeline = new Timeline(new KeyFrame(Duration.seconds(30.0), e ->{
 	    		Alert alert = new Alert(AlertType.INFORMATION, "It's been 30 seconds since the door opened.",  ButtonType.OK);
+	    		alert.show();
 	    		if(alert.getResult() == ButtonType.OK) {
 	    			alert.close();
 	    		}
+	    		
 	    	
 	    	}));
 	    	timeline.setCycleCount(Timeline.INDEFINITE);
@@ -169,7 +173,7 @@ public class TableController implements Initializable {
 		public void closeManagement() throws Exception {
 			Stage closeManagement = (Stage) backToMenu.getScene().getWindow();
 			closeManagement.close();
-			
+			timeline.stop();
 			loadMenu();
 			
 		}
@@ -177,7 +181,7 @@ public class TableController implements Initializable {
 		public void loadMenu() throws Exception {
 			FXMLLoader loader = new FXMLLoader();
 			loader.getController();
-			Parent root = FXMLLoader.load(getClass().getResource("prototype.fxml"));
+			Parent root = FXMLLoader.load(Main.class.getResource("prototype.fxml"));
 	        Scene scene = new Scene(root);
 	        Stage primaryStage = new Stage();
 	        

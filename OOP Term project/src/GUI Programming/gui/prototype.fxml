@@ -11,7 +11,10 @@
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="302.0" prefWidth="424.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainController">
    <children>
       <Button fx:id="manageButton" layoutX="156.0" layoutY="151.0" mnemonicParsing="false" onAction="#managementWindow" text="Start Management" />
-      <Label layoutX="153.0" layoutY="90.0" prefHeight="14.0" prefWidth="119.0" text="Refrigerator Prototype" />
+      <Label layoutX="133.0" layoutY="98.0" prefHeight="18.0" prefWidth="159.0" text="Refrigerator Program v1.0">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
       <Label fx:id="temp" layoutX="24.0" layoutY="250.0" prefHeight="22.0" prefWidth="129.0" text="Temperature:">
          <font>
             <Font size="13.0" />
@@ -22,7 +25,7 @@
             <items>
               <MenuItem fx:id="openFoodList" mnemonicParsing="false" onAction="#openFoodList" text="Open" />
                   <MenuItem fx:id="saveFoodList" mnemonicParsing="false" onAction="#saveFoodList" text="Save" />
-                  <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem mnemonicParsing="false" onAction="#close" text="Close" />
             </items>
           </Menu>
             <Menu fx:id="provideMenu" mnemonicParsing="false" text="Provide">

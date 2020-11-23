@@ -8,6 +8,7 @@ import Refrigerator.Refrigerator;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -21,6 +22,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import management.FoodTable;
@@ -58,6 +60,7 @@ public class MainController implements Initializable{
 	public void initialize(URL url, ResourceBundle rb) {
 		currentTemp();
 	}
+	
 	
 	
 	@FXML
@@ -113,9 +116,7 @@ public class MainController implements Initializable{
 			String text = "Temperature: " + String.format("%.1f", temperature) + "\u2103";
 			temperature = ref.upTemp();
 			temp.setText(text);
-			System.out.println(text);
 			if(temperature >= 20.0) {
-				System.out.println("Temperature goes up.");
 				temp.setText("Chilling..");
 				ref.autoMaintain(temperature);
 			}
@@ -163,6 +164,20 @@ public class MainController implements Initializable{
 		}
 	}
 	
+	@FXML
+	public void close() {
+		Alert alert = new Alert(AlertType.INFORMATION, "Exit Program?", ButtonType.YES, ButtonType.NO);
+		alert.showAndWait();
+		
+		if(alert.getResult() == ButtonType.YES) {
+			System.exit(0);
+		}
+		
+		if(alert.getResult() == ButtonType.NO) {
+			return;
+		}
+		
+	}
 	
 	
 }
