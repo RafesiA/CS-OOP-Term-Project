@@ -6,25 +6,35 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="302.0" prefWidth="424.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainController">
    <children>
       <Button fx:id="manageButton" layoutX="156.0" layoutY="151.0" mnemonicParsing="false" onAction="#managementWindow" text="Start Management" />
       <Label layoutX="153.0" layoutY="90.0" prefHeight="14.0" prefWidth="119.0" text="Refrigerator Prototype" />
-      <Label fx:id="temp" layoutX="14.0" layoutY="253.0" prefHeight="14.0" prefWidth="101.0" text="Temperature:" />
+      <Label fx:id="temp" layoutX="24.0" layoutY="250.0" prefHeight="22.0" prefWidth="129.0" text="Temperature:">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
       <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="424.0">
         <menus>
-          <Menu mnemonicParsing="false" text="Status">
+          <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Open" />
+              <MenuItem fx:id="openFoodList" mnemonicParsing="false" onAction="#openFoodList" text="Open" />
+                  <MenuItem fx:id="saveFoodList" mnemonicParsing="false" onAction="#saveFoodList" text="Save" />
                   <MenuItem mnemonicParsing="false" text="Close" />
             </items>
           </Menu>
+            <Menu fx:id="provideMenu" mnemonicParsing="false" text="Provide">
+              <items>
+                <MenuItem fx:id="iceItem" mnemonicParsing="false" onAction="#productIceMenu" text="Ice" />
+                  <MenuItem fx:id="waterItem" mnemonicParsing="false" onAction="#productWaterMenu" text="Water" />
+              </items>
+            </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
               <MenuItem mnemonicParsing="false" text="About" />
-                  <MenuItem mnemonicParsing="false" text="How to use" />
-                  <MenuItem mnemonicParsing="false" text="Check for update" />
+                  <MenuItem mnemonicParsing="false" text="Check for Updates" />
             </items>
           </Menu>
         </menus>

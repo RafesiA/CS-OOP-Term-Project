@@ -1,9 +1,8 @@
 package gui;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import Refrigerator.Refrigerator;
 import javafx.animation.KeyFrame;
@@ -14,8 +13,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import management.FoodTable;
@@ -23,19 +28,42 @@ import management.FoodTable;
 public class MainController implements Initializable{
 	@FXML
 	Button manageButton;
+    @FXML
+    private ToggleGroup type;
 	
 	@FXML
 	Label temp;
+	
+    @FXML
+    private Menu provideMenu;
+
+    @FXML
+    private MenuItem iceItem;
+
+    @FXML
+    private MenuItem waterItem;
+    
+    @FXML
+    private MenuItem openFoodList;
+    
+    @FXML
+    private MenuItem saveFoodList;
 	
 	Refrigerator ref = new Refrigerator();
 	double temperature = 0.0;
 	
 	Timeline timeline;
 	
+	@Override
+	public void initialize(URL url, ResourceBundle rb) {
+		currentTemp();
+	}
+	
+	
 	@FXML
 	public void managementWindow(ActionEvent event) throws Exception {
 		FXMLLoader loader = new FXMLLoader();
-		Parent root = FXMLLoader.load(FoodTable.class.getResource("\\Management.fxml"));
+		Parent root = FXMLLoader.load(FoodTable.class.getResource("Management.fxml"));
 		loader.getController();
 		Scene scene = new Scene(root);
 		Stage stage = new Stage();
@@ -48,12 +76,37 @@ public class MainController implements Initializable{
 		stage.setTitle("Refrigerator Management System");
 		stage.show();
 		
+		
 	}
 	
-	@Override
-	public void initialize(URL url, ResourceBundle rb) {
-		currentTemp();
+	@FXML
+	public void productIceMenu(ActionEvent event) throws Exception {
+		FXMLLoader loader = new FXMLLoader();
+		Parent root = FXMLLoader.load(FoodTable.class.getResource("IceProduct.fxml"));
+		loader.getController();
+		Scene scene = new Scene(root);
+		Stage stage = new Stage();
+		stage.setResizable(false);
+		
+		stage.setScene(scene);
+		stage.setTitle("Product Ice");
+		stage.show();
 	}
+	
+	
+    @FXML
+    public void productWaterMenu(ActionEvent event) throws Exception {
+    	FXMLLoader loader = new FXMLLoader();
+		Parent root = FXMLLoader.load(FoodTable.class.getResource("Water.fxml"));
+		loader.getController();
+		Scene scene = new Scene(root);
+		Stage stage = new Stage();
+		stage.setResizable(false);
+		
+		stage.setScene(scene);
+		stage.setTitle("Water Purifier System");
+		stage.show();
+    }
 	
 	public void currentTemp() {
 		timeline = new Timeline(new KeyFrame(Duration.seconds(2.0), e ->{
@@ -70,4 +123,46 @@ public class MainController implements Initializable{
 	timeline.setCycleCount(Timeline.INDEFINITE);
 	timeline.play();
 	}
+	
+	@FXML
+	public void openFoodList() {
+		try {
+			ref.openFoodList();
+			
+			Alert alert = new Alert(AlertType.CONFIRMATION, "Saved List", ButtonType.OK);
+			alert.showAndWait();
+			if(alert.getResult() == ButtonType.OK)
+				alert.close();
+			
+		} catch (IOException e) {
+			Alert error = new Alert(AlertType.ERROR, "Failed open file.", ButtonType.OK);
+			error.showAndWait();
+			if(error.getResult() == ButtonType.OK)
+				error.close();
+			
+		}
+	}
+	
+	
+	
+	@FXML
+	public void saveFoodList() {
+		try {
+			ref.saveFoodList();
+			
+			Alert alert = new Alert(AlertType.CONFIRMATION, "Saved List", ButtonType.OK);
+			alert.showAndWait();
+			if(alert.getResult() == ButtonType.OK)
+				alert.close();
+			
+		} catch (IOException e) {
+			Alert error = new Alert(AlertType.ERROR, "Failed save", ButtonType.OK);
+			error.showAndWait();
+			if(error.getResult() == ButtonType.OK)
+				error.close();
+		}
+	}
+	
+	
+	
 }

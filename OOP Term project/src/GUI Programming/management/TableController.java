@@ -58,7 +58,7 @@ public class TableController implements Initializable {
 	@FXML
 	private CheckBox editMode;
 	// Table
-    static ObservableList<FoodTable> myList = FXCollections.observableArrayList();
+    public static ObservableList<FoodTable> myList = FXCollections.observableArrayList();
     AddNewFoodController anf = new AddNewFoodController();
     
     Refrigerator ref = new Refrigerator();

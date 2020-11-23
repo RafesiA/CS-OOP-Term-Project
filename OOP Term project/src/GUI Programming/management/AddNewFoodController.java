@@ -3,7 +3,6 @@ package management;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -43,7 +42,7 @@ public class AddNewFoodController implements Initializable {
 	
     @FXML
 	public void addNewFood(ActionEvent event) {
-		if(!nameField.getText().trim().isEmpty() && dateField.getText().trim().length() == 6
+		if(!nameField.getText().trim().isEmpty() && dateField.getText().trim().length() == 10
 				&& !typeBox.getSelectionModel().isEmpty()) {
 			FoodTable foodTable = new FoodTable();
     	
@@ -53,11 +52,9 @@ public class AddNewFoodController implements Initializable {
     	
 			TableController.myList.add(new FoodTable(foodTable.getName(), foodTable.getDate(), foodTable.getType()));
     	
-			nameField.clear();
-			dateField.clear();
-    	
 			Stage stage = (Stage) acceptButton.getScene().getWindow();
 			stage.close();
+			
 			return;
 			
 		}

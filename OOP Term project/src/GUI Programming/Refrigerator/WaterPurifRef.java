@@ -1,8 +1,8 @@
 package Refrigerator;
 
+import java.util.Random;
+
 public class WaterPurifRef extends Refrigerator {
-	private boolean coldButton;
-	private boolean warmButton;
 	
 	
 	public WaterPurifRef() {
@@ -10,10 +10,10 @@ public class WaterPurifRef extends Refrigerator {
 		
 	}
 	
-	public void provideWater() {
-		System.out.println("Select button");
-		//provide water which user select cold and warm.
+	public double boil() {
+		Random rand = new Random();
+		double maintain = -0.3 + (0.3 - -0.3) * rand.nextDouble();
+		return maintain;
 	}
-	
 	
 }
